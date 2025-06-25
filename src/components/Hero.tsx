@@ -4,10 +4,6 @@ import Image from 'next/image'
 import { eventLogger } from '@/utils/logger'
 
 export default function Hero() {
-  const handleButtonClick = (action: string) => {
-    eventLogger.logButtonClick(action, 'hero')
-  }
-
   const handleMainActionClick = (action: string) => {
     eventLogger.logButtonClick(action, 'hero_main_actions')
     // Additional tracking for main CTA buttons
