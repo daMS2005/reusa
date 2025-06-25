@@ -26,7 +26,7 @@ export default function AnalyticsDashboard() {
     const stats: Record<string, number> = {}
     
     buttonClicks.forEach(event => {
-      const buttonType = event.additionalData?.buttonType || 'unknown'
+      const buttonType = String(event.additionalData?.buttonType || 'unknown')
       stats[buttonType] = (stats[buttonType] || 0) + 1
     })
     
