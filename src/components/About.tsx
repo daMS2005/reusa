@@ -70,7 +70,7 @@ export default function About() {
                 <div className="text-4xl">💚</div>
                 <div>
                   <p className="text-lg text-gray-800 font-medium italic mb-2">
-                    "En ReUsa, reutilizar es cuidar. No solo ahorras y liberas espacio, también creas un impacto positivo en otras familias y en el planeta."
+                    &quot;En ReUsa, reutilizar es cuidar. No solo ahorras y liberas espacio, también creas un impacto positivo en otras familias y en el planeta.&quot;
                   </p>
                   <p className="text-sm text-gray-600">— Nuestra comunidad</p>
                 </div>

@@ -4,7 +4,7 @@ export interface LogEvent {
   timestamp: string
   userAgent: string
   sessionId: string
-  additionalData?: Record<string, any>
+  additionalData?: Record<string, unknown>
 }
 
 const isProd = typeof window !== 'undefined' && process.env.NODE_ENV === 'production';
@@ -25,7 +25,7 @@ class EventLogger {
     this.log('page_view', { page: 'landing' })
   }
 
-  log(action: string, additionalData?: Record<string, any>) {
+  log(action: string, additionalData?: Record<string, unknown>) {
     const event: LogEvent = {
       action,
       timestamp: new Date().toISOString(),
@@ -84,3 +84,13 @@ class EventLogger {
 }
 
 export const eventLogger = new EventLogger() 
+
+export function handleNewsletterSignup(email: string) {
+  try {
+    // Logic to handle newsletter signup
+    eventLogger.logNewsletterSignup(email)
+  } catch (error: unknown) {
+    console.error('Newsletter signup error:', error)
+    eventLogger.log('newsletter_error', { error: error instanceof Error ? error.message : 'Unknown error' })
+  }
+} 

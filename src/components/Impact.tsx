@@ -15,7 +15,7 @@ export default function Impact() {
       color: 'blue'
     },
     {
-      number: '$15,000',
+      number: 'RD$ 2,150,000',
       label: 'Ahorrados por las familias',
       icon: '💰',
       color: 'purple'
