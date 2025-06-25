@@ -5,7 +5,6 @@ import HowItWorks from '@/components/HowItWorks'
 import Impact from '@/components/Impact'
 import Newsletter from '@/components/Newsletter'
 import Footer from '@/components/Footer'
-import AnalyticsDashboard from '@/components/AnalyticsDashboard'
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <Impact />
       <Newsletter />
       <Footer />
-      <AnalyticsDashboard />
     </main>
   )
 }

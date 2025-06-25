@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { eventLogger } from '@/utils/logger'
 
 export default function HowItWorks() {
   const steps = [
@@ -26,43 +27,43 @@ export default function HowItWorks() {
   ]
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-800 mb-4 sm:mb-6">
             ¿Cómo Funciona?
           </h2>
-          <div className="w-24 h-1 bg-green-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-green-600 mx-auto mb-6 sm:mb-8"></div>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Tres pasos simples para darle una segunda vida a los artículos infantiles
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative group">
               {/* Step Card */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 {/* Step Number */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-10 h-10 sm:w-12 sm:h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-lg">
                   {step.number}
                 </div>
 
                 {/* Icon */}
-                <div className="text-center mb-6">
-                  <div className="text-4xl mb-4">{step.icon}</div>
-                  <h3 className="text-xl font-bold text-green-800 mb-4">
+                <div className="text-center mb-4 sm:mb-6">
+                  <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{step.icon}</div>
+                  <h3 className="text-lg sm:text-xl font-bold text-green-800 mb-3 sm:mb-4">
                     {step.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                   {step.description}
                 </p>
 
                 {/* Image */}
-                <div className="relative h-48 rounded-xl overflow-hidden">
+                <div className="relative h-40 sm:h-48 rounded-lg sm:rounded-xl overflow-hidden">
                   <Image
                     src={step.image}
                     alt={step.title}
@@ -81,15 +82,18 @@ export default function HowItWorks() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="bg-green-50 p-8 rounded-2xl border border-green-200">
-            <h3 className="text-2xl font-bold text-green-800 mb-4">
+        <div className="text-center mt-12 sm:mt-16">
+          <div className="bg-green-50 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-green-200">
+            <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-3 sm:mb-4">
               ¿Listo para empezar?
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
               Únete a nuestra comunidad y comienza a reutilizar de forma responsable
             </p>
-            <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+            <button 
+              onClick={() => eventLogger.logButtonClick('unete_reusa', 'how_it_works')}
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 hover:shadow-lg transform hover:scale-105 text-sm sm:text-base"
+            >
               Únete a ReUsa
             </button>
           </div>

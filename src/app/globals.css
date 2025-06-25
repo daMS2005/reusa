@@ -55,7 +55,7 @@ html {
   background: linear-gradient(to right, #059669, #10b981);
   color: white;
   font-weight: 600;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
   transition: all 0.3s ease;
   transform: scale(1);
@@ -72,7 +72,7 @@ html {
   background: white;
   color: #374151;
   font-weight: 600;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
   border: 1px solid #e5e7eb;
   transition: all 0.3s ease;
@@ -89,7 +89,7 @@ html {
   background: linear-gradient(to right, #3b82f6, #8b5cf6);
   color: white;
   font-weight: 600;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
   transition: all 0.3s ease;
   transform: scale(1);
@@ -191,6 +191,7 @@ html {
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(4px);
+  font-size: 1rem;
 }
 
 .form-input:focus {
@@ -199,41 +200,107 @@ html {
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
-/* Stats cards */
+/* Mobile-specific form input adjustments */
+@media (max-width: 640px) {
+  .form-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 0.875rem 1rem;
+  }
+}
+
+/* Stat card styles */
 .stat-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  background: white;
   border-radius: 1rem;
   padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   border: 1px solid #f3f4f6;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 .stat-card:hover {
-  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
   transform: translateY(-0.25rem);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Section spacing */
+/* Section padding */
 .section-padding {
-  padding: 6rem 1rem;
+  padding: 3rem 1rem;
 }
 
-/* Container */
+/* Container custom */
 .container-custom {
-  max-width: 80rem;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* Responsive utilities */
+/* Responsive adjustments */
 @media (min-width: 640px) {
   .section-padding {
-    padding: 6rem 1.5rem;
+    padding: 4rem 1.5rem;
+  }
+  
+  .container-custom {
+    padding: 0 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding: 6rem 2rem;
+    padding: 5rem 2rem;
+  }
+  
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Ensure buttons are large enough for touch */
+  button {
+    min-height: 44px;
+  }
+  
+  /* Improve text readability on mobile */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+  
+  /* Better spacing for mobile */
+  .space-y-6 > * + * {
+    margin-top: 1.25rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.75rem;
+  }
+  
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .card-hover:hover {
+    transform: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-accent:hover {
+    transform: none;
+  }
+  
+  /* Increase touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
   }
 }

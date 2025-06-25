@@ -12,48 +12,48 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gray-900 text-white py-16 px-4">
+    <footer className="bg-gray-900 text-white py-12 sm:py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold text-green-400 mb-4">ReUsa</h3>
-            <p className="text-gray-300 mb-6 max-w-md">
+          <div className="sm:col-span-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-green-400 mb-3 sm:mb-4">ReUsa</h3>
+            <p className="text-gray-300 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">
               Reutilizar es cuidar. Una plataforma colaborativa para intercambiar, donar, vender o comprar artículos infantiles de forma sostenible y solidaria.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 sm:space-x-4">
               <button
                 onClick={() => handleSocialClick('instagram')}
-                className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="Instagram"
               >
-                📷
+                <span className="text-sm sm:text-base">📷</span>
               </button>
               <button
                 onClick={() => handleSocialClick('facebook')}
-                className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="Facebook"
               >
-                📘
+                <span className="text-sm sm:text-base">📘</span>
               </button>
               <button
                 onClick={() => handleSocialClick('tiktok')}
-                className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="TikTok"
               >
-                🎵
+                <span className="text-sm sm:text-base">🎵</span>
               </button>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-green-400">Enlaces Rápidos</h4>
+            <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-green-400">Enlaces Rápidos</h4>
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => eventLogger.logButtonClick('footer_about', 'footer')}
-                  className="text-gray-300 hover:text-green-400 transition-colors duration-300"
+                  className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   ¿Qué es ReUsa?
                 </button>
@@ -61,7 +61,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => eventLogger.logButtonClick('footer_how_it_works', 'footer')}
-                  className="text-gray-300 hover:text-green-400 transition-colors duration-300"
+                  className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   Cómo funciona
                 </button>
@@ -69,7 +69,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => eventLogger.logButtonClick('footer_impact', 'footer')}
-                  className="text-gray-300 hover:text-green-400 transition-colors duration-300"
+                  className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   Nuestro impacto
                 </button>
@@ -77,7 +77,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => eventLogger.logButtonClick('footer_join', 'footer')}
-                  className="text-gray-300 hover:text-green-400 transition-colors duration-300"
+                  className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   Únete a ReUsa
                 </button>
@@ -87,12 +87,12 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-green-400">Contacto</h4>
+            <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-green-400">Contacto</h4>
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => handleContactClick('email')}
-                  className="flex items-center text-gray-300 hover:text-green-400 transition-colors duration-300"
+                  className="flex items-center text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   <span className="mr-2">📧</span>
                   hola@reusa.com
@@ -101,7 +101,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => handleContactClick('whatsapp')}
-                  className="flex items-center text-gray-300 hover:text-green-400 transition-colors duration-300"
+                  className="flex items-center text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   <span className="mr-2">📱</span>
                   WhatsApp
@@ -110,7 +110,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => handleContactClick('form')}
-                  className="flex items-center text-gray-300 hover:text-green-400 transition-colors duration-300"
+                  className="flex items-center text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   <span className="mr-2">📝</span>
                   Formulario de contacto
@@ -121,12 +121,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
+        <div className="border-t border-gray-700 pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className="text-gray-400 text-xs sm:text-sm mb-4 sm:mb-0 text-center sm:text-left">
               © 2024 ReUsa. Todos los derechos reservados.
             </div>
-            <div className="flex space-x-6 text-sm">
+            <div className="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6 text-xs sm:text-sm">
               <button
                 onClick={() => eventLogger.logButtonClick('footer_privacy', 'footer')}
                 className="text-gray-400 hover:text-green-400 transition-colors duration-300"
@@ -150,17 +150,17 @@ export default function Footer() {
         </div>
 
         {/* Newsletter Signup in Footer */}
-        <div className="mt-12 p-6 bg-gray-800 rounded-xl">
+        <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-gray-800 rounded-lg sm:rounded-xl">
           <div className="text-center">
-            <h4 className="text-lg font-semibold mb-2 text-green-400">
+            <h4 className="text-base sm:text-lg font-semibold mb-2 text-green-400">
               ¿No quieres perderte nada?
             </h4>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">
               Suscríbete para recibir las últimas novedades de ReUsa
             </p>
             <button
               onClick={() => eventLogger.logButtonClick('footer_newsletter', 'footer')}
-              className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 hover:shadow-lg"
+              className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 sm:px-6 rounded-lg transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
             >
               Suscribirse
             </button>
