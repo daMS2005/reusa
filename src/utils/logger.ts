@@ -1,4 +1,12 @@
 // Centralized logging utility for ReUsa validation
+
+// TypeScript declaration for Plausible Analytics
+declare global {
+  interface Window {
+    plausible?: (eventName: string, options?: { props?: Record<string, string | number | boolean> }) => void
+  }
+}
+
 export interface LogEvent {
   action: string
   timestamp: string
@@ -25,6 +33,17 @@ class EventLogger {
     this.log('page_view', { page: 'landing' })
   }
 
+  // Send custom event to Plausible Analytics
+  private sendToPlausible(eventName: string, props?: Record<string, string | number | boolean>) {
+    if (typeof window !== 'undefined' && window.plausible) {
+      window.plausible(eventName, { props })
+      // Development logging for Plausible events
+      if (!isProd) {
+        console.log('📊 Plausible Event:', { eventName, props })
+      }
+    }
+  }
+
   log(action: string, additionalData?: Record<string, unknown>) {
     const event: LogEvent = {
       action,
@@ -33,6 +52,9 @@ class EventLogger {
       sessionId: this.sessionId,
       additionalData
     }
+
+    // Send to Plausible Analytics
+    this.sendToPlausible(action, additionalData as Record<string, string | number | boolean>)
 
     if (isProd) {
       // Send to internal API route for Vercel logging
@@ -67,6 +89,35 @@ class EventLogger {
 
   logInterest(action: string) {
     this.log('interest_expressed', { action })
+  }
+
+  // Enhanced tracking functions
+  logMainCTA(action: string, section: string) {
+    this.log('main_cta_click', { action, section, button_type: 'main_cta' })
+  }
+
+  logSecondaryCTA(action: string, section: string) {
+    this.log('secondary_cta_click', { action, section, button_type: 'secondary_cta' })
+  }
+
+  logFormInteraction(field: string, action: 'focus' | 'blur' | 'input', section: string) {
+    this.log('form_field_interaction', { field, action, section })
+  }
+
+  logFormSubmission(form: string, section: string, success: boolean) {
+    this.log('form_submission', { form, section, success })
+  }
+
+  logSocialClick(platform: string, location: string) {
+    this.log('social_click', { platform, location })
+  }
+
+  logContactClick(method: string, location: string) {
+    this.log('contact_click', { method, location })
+  }
+
+  logNavigationClick(destination: string, location: string) {
+    this.log('navigation_click', { destination, location })
   }
 
   getEvents(): LogEvent[] {

@@ -93,7 +93,7 @@ export default function HowItWorks() {
               Únete a nuestra comunidad y comienza a reutilizar de forma responsable
             </p>
             <button 
-              onClick={() => eventLogger.logButtonClick('unete_reusa', 'how_it_works')}
+              onClick={() => eventLogger.logMainCTA('unete_reusa', 'how_it_works')}
               className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 hover:shadow-lg transform hover:scale-105 text-sm sm:text-base"
             >
               Únete a ReUsa

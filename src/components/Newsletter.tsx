@@ -19,27 +19,15 @@ export default function Newsletter() {
     }))
     
     // Track form field interactions
-    eventLogger.log('form_field_interaction', { 
-      field: name, 
-      action: 'input_change',
-      section: 'newsletter'
-    })
+    eventLogger.logFormInteraction(name, 'input', 'newsletter')
   }
 
   const handleInputFocus = (fieldName: string) => {
-    eventLogger.log('form_field_interaction', { 
-      field: fieldName, 
-      action: 'focus',
-      section: 'newsletter'
-    })
+    eventLogger.logFormInteraction(fieldName, 'focus', 'newsletter')
   }
 
   const handleInputBlur = (fieldName: string) => {
-    eventLogger.log('form_field_interaction', { 
-      field: fieldName, 
-      action: 'blur',
-      section: 'newsletter'
-    })
+    eventLogger.logFormInteraction(fieldName, 'blur', 'newsletter')
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,10 +35,7 @@ export default function Newsletter() {
     setIsSubmitting(true)
 
     // Track form submission attempt
-    eventLogger.log('form_submission_attempt', { 
-      form: 'newsletter',
-      section: 'newsletter'
-    })
+    eventLogger.logFormSubmission('newsletter', 'newsletter', false)
 
     try {
       // Submit to Formspree
@@ -71,7 +56,7 @@ export default function Newsletter() {
           section: 'newsletter'
         })
         // Track successful signup
-        eventLogger.logButtonClick('newsletter_signup_success', 'newsletter')
+        eventLogger.logFormSubmission('newsletter', 'newsletter', true)
       } else {
         throw new Error('Formspree submission failed')
       }
@@ -82,7 +67,7 @@ export default function Newsletter() {
         section: 'newsletter'
       })
       // Track failed signup
-      eventLogger.logButtonClick('newsletter_signup_failed', 'newsletter')
+      eventLogger.logFormSubmission('newsletter', 'newsletter', false)
     } finally {
       setIsSubmitting(false)
     }

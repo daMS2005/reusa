@@ -5,23 +5,11 @@ import { eventLogger } from '@/utils/logger'
 
 export default function Hero() {
   const handleMainActionClick = (action: string) => {
-    eventLogger.logButtonClick(action, 'hero_main_actions')
-    // Additional tracking for main CTA buttons
-    eventLogger.log('main_cta_click', { 
-      action: action,
-      section: 'hero',
-      button_type: 'main_cta'
-    })
+    eventLogger.logMainCTA(action, 'hero')
   }
 
   const handleSecondaryActionClick = (action: string) => {
-    eventLogger.logButtonClick(action, 'hero_secondary_actions')
-    // Additional tracking for secondary CTA buttons
-    eventLogger.log('secondary_cta_click', { 
-      action: action,
-      section: 'hero',
-      button_type: 'secondary_cta'
-    })
+    eventLogger.logSecondaryCTA(action, 'hero')
   }
 
   return (

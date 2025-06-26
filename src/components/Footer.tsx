@@ -4,11 +4,15 @@ import { eventLogger } from '@/utils/logger'
 
 export default function Footer() {
   const handleSocialClick = (platform: string) => {
-    eventLogger.logButtonClick(`social_${platform}`, 'footer')
+    eventLogger.logSocialClick(platform, 'footer')
   }
 
   const handleContactClick = (method: string) => {
-    eventLogger.logButtonClick(`contact_${method}`, 'footer')
+    eventLogger.logContactClick(method, 'footer')
+  }
+
+  const handleNavigationClick = (destination: string) => {
+    eventLogger.logNavigationClick(destination, 'footer')
   }
 
   return (
@@ -52,7 +56,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() => eventLogger.logButtonClick('footer_about', 'footer')}
+                  onClick={() => handleNavigationClick('about')}
                   className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   ¿Qué es ReUsa?
@@ -60,7 +64,7 @@ export default function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => eventLogger.logButtonClick('footer_how_it_works', 'footer')}
+                  onClick={() => handleNavigationClick('how_it_works')}
                   className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   Cómo funciona
@@ -68,7 +72,7 @@ export default function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => eventLogger.logButtonClick('footer_impact', 'footer')}
+                  onClick={() => handleNavigationClick('impact')}
                   className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   Nuestro impacto
@@ -76,7 +80,7 @@ export default function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => eventLogger.logButtonClick('footer_join', 'footer')}
+                  onClick={() => handleNavigationClick('join')}
                   className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   Únete a ReUsa
@@ -128,19 +132,19 @@ export default function Footer() {
             </div>
             <div className="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6 text-xs sm:text-sm">
               <button
-                onClick={() => eventLogger.logButtonClick('footer_privacy', 'footer')}
+                onClick={() => handleNavigationClick('privacy')}
                 className="text-gray-400 hover:text-green-400 transition-colors duration-300"
               >
                 Política de Privacidad
               </button>
               <button
-                onClick={() => eventLogger.logButtonClick('footer_terms', 'footer')}
+                onClick={() => handleNavigationClick('terms')}
                 className="text-gray-400 hover:text-green-400 transition-colors duration-300"
               >
                 Términos de Servicio
               </button>
               <button
-                onClick={() => eventLogger.logButtonClick('footer_cookies', 'footer')}
+                onClick={() => handleNavigationClick('cookies')}
                 className="text-gray-400 hover:text-green-400 transition-colors duration-300"
               >
                 Cookies
