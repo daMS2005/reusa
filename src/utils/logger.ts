@@ -78,9 +78,22 @@ class EventLogger {
     // This is where you'd integrate with your analytics platform
   }
 
-  // Specific action loggers
+  // Enhanced button click tracking with descriptive event names
   logButtonClick(buttonType: string, location?: string) {
-    this.log('button_click', { buttonType, location })
+    // Create a more descriptive event name for Plausible
+    const eventName = `button_${buttonType}_click`
+    this.log(eventName, { buttonType, location })
+  }
+
+  // Specific action loggers with descriptive names
+  logMainAction(action: string, section: string) {
+    const eventName = `main_action_${action}`
+    this.log(eventName, { action, section, button_type: 'main_action' })
+  }
+
+  logSecondaryAction(action: string, section: string) {
+    const eventName = `secondary_action_${action}`
+    this.log(eventName, { action, section, button_type: 'secondary_action' })
   }
 
   logNewsletterSignup(email: string) {
@@ -91,33 +104,61 @@ class EventLogger {
     this.log('interest_expressed', { action })
   }
 
-  // Enhanced tracking functions
+  // Enhanced tracking functions with descriptive names
   logMainCTA(action: string, section: string) {
-    this.log('main_cta_click', { action, section, button_type: 'main_cta' })
+    const eventName = `main_cta_${action}`
+    this.log(eventName, { action, section, button_type: 'main_cta' })
   }
 
   logSecondaryCTA(action: string, section: string) {
-    this.log('secondary_cta_click', { action, section, button_type: 'secondary_cta' })
+    const eventName = `secondary_cta_${action}`
+    this.log(eventName, { action, section, button_type: 'secondary_cta' })
   }
 
   logFormInteraction(field: string, action: 'focus' | 'blur' | 'input', section: string) {
-    this.log('form_field_interaction', { field, action, section })
+    const eventName = `form_${field}_${action}`
+    this.log(eventName, { field, action, section })
   }
 
   logFormSubmission(form: string, section: string, success: boolean) {
-    this.log('form_submission', { form, section, success })
+    const eventName = `form_${form}_submission`
+    this.log(eventName, { form, section, success })
   }
 
   logSocialClick(platform: string, location: string) {
-    this.log('social_click', { platform, location })
+    const eventName = `social_${platform}_click`
+    this.log(eventName, { platform, location })
   }
 
   logContactClick(method: string, location: string) {
-    this.log('contact_click', { method, location })
+    const eventName = `contact_${method}_click`
+    this.log(eventName, { method, location })
   }
 
   logNavigationClick(destination: string, location: string) {
-    this.log('navigation_click', { destination, location })
+    const eventName = `navigation_${destination}_click`
+    this.log(eventName, { destination, location })
+  }
+
+  // New specific tracking functions for better Plausible dashboard visibility
+  logHeroAction(action: string) {
+    const eventName = `hero_${action}_click`
+    this.log(eventName, { action, section: 'hero' })
+  }
+
+  logNewsletterAction(action: string) {
+    const eventName = `newsletter_${action}_click`
+    this.log(eventName, { action, section: 'newsletter' })
+  }
+
+  logFooterAction(action: string, type: string) {
+    const eventName = `footer_${type}_${action}_click`
+    this.log(eventName, { action, type, section: 'footer' })
+  }
+
+  logAnalyticsAction(action: string) {
+    const eventName = `analytics_${action}_click`
+    this.log(eventName, { action, section: 'analytics_dashboard' })
   }
 
   getEvents(): LogEvent[] {

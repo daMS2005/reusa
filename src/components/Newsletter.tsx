@@ -75,7 +75,7 @@ export default function Newsletter() {
 
   if (isSubmitted) {
     return (
-      <section className="section-padding bg-[linear-gradient(135deg,#059669_0%,#047857_100%)] relative overflow-hidden">
+      <section id="newsletter" className="section-padding bg-[linear-gradient(135deg,#059669_0%,#047857_100%)] relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-white/10 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
@@ -95,7 +95,7 @@ export default function Newsletter() {
               <button
                 onClick={() => {
                   setIsSubmitted(false)
-                  eventLogger.logButtonClick('invitar_amigos', 'newsletter_success')
+                  eventLogger.logNewsletterAction('invitar_amigos')
                 }}
                 className="btn-primary text-sm sm:text-base"
               >
@@ -109,7 +109,7 @@ export default function Newsletter() {
   }
 
   return (
-    <section className="section-padding bg-[linear-gradient(135deg,#059669_0%,#047857_100%)] relative overflow-hidden">
+    <section id="newsletter" className="section-padding bg-[linear-gradient(135deg,#059669_0%,#047857_100%)] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-white/10 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
@@ -177,7 +177,7 @@ export default function Newsletter() {
                 disabled={isSubmitting}
                 onClick={() => {
                   if (!isSubmitting) {
-                    eventLogger.logButtonClick('newsletter_submit', 'newsletter')
+                    eventLogger.logNewsletterAction('submit')
                   }
                 }}
                 className="w-full bg-white hover:bg-gray-50 disabled:bg-gray-300 text-green-700 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg disabled:transform-none disabled:shadow-none text-base sm:text-lg"
@@ -204,7 +204,7 @@ export default function Newsletter() {
             <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-white/20">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                 <button
-                  onClick={() => eventLogger.logButtonClick('compartir_redes', 'newsletter')}
+                  onClick={() => eventLogger.logNewsletterAction('compartir_redes')}
                   className="flex items-center justify-center gap-2 sm:gap-3 bg-white/10 hover:bg-white/20 text-white font-medium py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
                 >
                   <span className="text-xl sm:text-2xl">📱</span>
@@ -212,7 +212,7 @@ export default function Newsletter() {
                 </button>
                 
                 <button
-                  onClick={() => eventLogger.logButtonClick('saber_mas_plataforma', 'newsletter')}
+                  onClick={() => eventLogger.logNewsletterAction('saber_mas_plataforma')}
                   className="flex items-center justify-center gap-2 sm:gap-3 bg-white/10 hover:bg-white/20 text-white font-medium py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
                 >
                   <span className="text-xl sm:text-2xl">💬</span>
@@ -220,7 +220,7 @@ export default function Newsletter() {
                 </button>
                 
                 <button
-                  onClick={() => eventLogger.logButtonClick('contacto_directo', 'newsletter')}
+                  onClick={() => eventLogger.logNewsletterAction('contacto_directo')}
                   className="flex items-center justify-center gap-2 sm:gap-3 bg-white/10 hover:bg-white/20 text-white font-medium py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
                 >
                   <span className="text-xl sm:text-2xl">📧</span>

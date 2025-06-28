@@ -40,7 +40,7 @@ export default function AnalyticsDashboard() {
   const clearEvents = () => {
     eventLogger.clearEvents()
     setEvents([])
-    eventLogger.logButtonClick('analytics_clear_events', 'analytics_dashboard')
+    eventLogger.logAnalyticsAction('clear_events')
   }
 
   const exportEvents = () => {
@@ -51,7 +51,7 @@ export default function AnalyticsDashboard() {
     link.href = url
     link.download = 'reusa-analytics.json'
     link.click()
-    eventLogger.logButtonClick('analytics_export', 'analytics_dashboard')
+    eventLogger.logAnalyticsAction('export')
   }
 
   const buttonStats = getButtonClickStats()
@@ -62,7 +62,7 @@ export default function AnalyticsDashboard() {
       <button
         onClick={() => {
           setIsVisible(true)
-          eventLogger.logButtonClick('analytics_open', 'analytics_dashboard')
+          eventLogger.logAnalyticsAction('open')
         }}
         className="fixed bottom-4 right-4 bg-green-600 hover:bg-green-700 text-white p-2 sm:p-3 rounded-full shadow-lg z-50 transition-all duration-300"
         title="Ver Analytics"
@@ -79,7 +79,7 @@ export default function AnalyticsDashboard() {
         <button
           onClick={() => {
             setIsVisible(false)
-            eventLogger.logButtonClick('analytics_close', 'analytics_dashboard')
+            eventLogger.logAnalyticsAction('close')
           }}
           className="text-gray-500 hover:text-gray-700 p-1"
         >

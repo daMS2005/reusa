@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ReUsa - Plataforma de Reutilización Sostenible
 
-## Getting Started
+Una plataforma colaborativa para intercambiar, donar, vender o comprar artículos infantiles de forma práctica y solidaria.
 
-First, run the development server:
+## 🎯 Plausible Analytics Tracking
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+El proyecto incluye un sistema de tracking personalizado para Plausible Analytics que permite identificar acciones específicas de los usuarios en el dashboard.
+
+### Eventos de Botones en el Dashboard
+
+#### Hero Section
+- `hero_intercambiar_click` - Botón "Intercambiar"
+- `hero_donar_click` - Botón "Donar" 
+- `hero_vender_click` - Botón "Vender"
+- `hero_comprar_click` - Botón "Comprar"
+- `hero_quiero_donar_click` - Botón "Quiero Donar"
+- `hero_saber_mas_click` - Botón "Saber Más"
+
+#### Newsletter Section
+- `newsletter_submit_click` - Botón "ÚNETE A REUSA"
+- `newsletter_invitar_amigos_click` - Botón "Invitar a más amigos"
+- `newsletter_compartir_redes_click` - Botón "Compartir en redes"
+- `newsletter_saber_mas_plataforma_click` - Botón "Saber más"
+- `newsletter_contacto_directo_click` - Botón "Contacto directo"
+
+#### Footer Section
+- `footer_social_facebook_click` - Botón Facebook
+- `footer_social_tiktok_click` - Botón TikTok
+- `footer_contact_email_click` - Contacto por email
+- `footer_navigation_about_click` - Enlace "¿Qué es ReUsa?"
+- `footer_navigation_how_it_works_click` - Enlace "Cómo funciona"
+- `footer_navigation_impact_click` - Enlace "Nuestro impacto"
+- `footer_navigation_join_click` - Enlace "Únete a ReUsa"
+
+#### Analytics Dashboard
+- `analytics_open_click` - Abrir dashboard
+- `analytics_close_click` - Cerrar dashboard
+- `analytics_clear_events_click` - Limpiar eventos
+- `analytics_export_click` - Exportar datos
+
+### Propiedades Adicionales
+
+Cada evento incluye propiedades adicionales para mejor análisis:
+- `action` - La acción específica realizada
+- `section` - La sección donde ocurrió la acción
+- `button_type` - El tipo de botón (main_action, secondary_action, etc.)
+- `location` - La ubicación específica del botón
+
+### Desarrollo
+
+Para ver los eventos en desarrollo, abre la consola del navegador. Los eventos se muestran con el formato:
+```
+📊 Plausible Event: { eventName: "hero_intercambiar_click", props: { action: "intercambiar", section: "hero" } }
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📊 Analytics Dashboard
 
-## Learn More
+El proyecto incluye un dashboard de analytics en tiempo real que se puede abrir haciendo clic en el botón 📊 en la esquina inferior derecha.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tecnologías
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Plausible Analytics
